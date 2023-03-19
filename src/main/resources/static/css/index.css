@@ -2830,8 +2830,8 @@
 }
 
 .el-table thead {
-    color: #909399;
-    font-weight: 500
+    color: rgb(51 51 51);
+    font-weight: 700
 }
 
 .el-table thead.is-group th.el-table__cell {
