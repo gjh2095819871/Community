@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        资产设备管理
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/main.css" media="all">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script type="text/javascript" src="lib/loading/okLoading.js"></script>
+    <!--导入ElementUI样式-->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="x-nav">
+            <span class="layui-breadcrumb">
+              <a><cite>首页</cite></a>
+              <a><cite>资产设备管理</cite></a>
+              <a><cite>资产设备列表</cite></a>
+            </span>
+    <a class=" layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
+       href="javascript:location.replace(location.href);" title="刷新"><i class="el-icon-refresh-left"
+                                                                        style="line-height:30px"></i></a>
+</div>
+<div class="x-body" id="app">
+    <div class="block" style="padding: 20px 0 30px  0">
+        <span class="demonstration">时间范围:</span>
+        <el-date-picker
+                @change="dateChange"
+                v-model="selectDate"
+                type="daterange"
+                align="right"
+                unlink-panels
+                range-separator="--"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+                :picker-options="pickerOptions">
+        </el-date-picker>
+        <span class="demosttration">搜索关键字:</span>
+        <el-input v-model="searchMap.name" placeholder="请输入名称" style="width: 20%"></el-input>
+        <el-button type="primary" @click="searchMap.pageNum=1;search()" style="margin-left: 50px">搜索</el-button>
+    </div>
+    <xblock>
+        <el-button type="danger" @click="delAll()"><i class="el-icon-delete"></i>批量删除</el-button>
+        <el-button type="success" @click="admin_add('添加','promx_add.html','1000','600')">
+            <i class="el-icon-circle-plus-outline"></i>添加
+        </el-button>
+        <span class="x-right" style="line-height:40px">共有数据：<span class="layui-badge">{{total}}</span> 条</span>
+    </xblock>
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" name="" value="">
+            </th>
+            <th>
+                ID
+            </th>
+            <th>
+                所属小区
+            </th>
+            <th>
+                收费项目
+            </th>
+            <th>
+                业主
+            </th>
+            <th>
+                应收金额(￥)
+            </th>
+            <th>
+                实收金额(￥)
+            </th>
+            <th>
+                备注
+            </th>
+            <th>
+                缴费时间
+            </th>
+            <th>
+                创建时间
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <input type="checkbox" value="1" name="">
+            </td>
+            <td>
+                3                        </td>
+            <td>
+                东湖小区                        </td>
+            <td >
+                admin                        </td>
+            <td >
+                电梯广告位1                        </td>
+            <td >
+                500                        </td>
+            <td >
+                500                        </td>
+            <td >
+            </td>
+            <td >
+                2020-01-05                        </td>
+
+            <td >
+                2020-01-05 20:19:40                        </td>
+            <td class="td-manage">
+                <a title="编辑" href="javascript:;" onclick="promx_edit('编辑','promx_add.html','3','1000','600')"
+                   class="ml-5" style="text-decoration:none">
+                    <i class="layui-icon">&#xe642;</i>
+                </a>
+                <a title="删除" href="javascript:;" onclick="promx_del(this,'3')"
+                   style="text-decoration:none">
+                    <i class="layui-icon">&#xe640;</i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" value="1" name="">
+            </td>
+            <td>
+                2                        </td>
+            <td>
+                东湖小区                        </td>
+            <td >
+                admin                        </td>
+            <td >
+                停车位                        </td>
+            <td >
+                50                        </td>
+            <td >
+                50                        </td>
+            <td >
+                车位测试                        </td>
+            <td >
+                2020-01-05                        </td>
+
+            <td >
+                2020-01-05 20:19:11                        </td>
+            <td class="td-manage">
+                <a title="编辑" href="javascript:;" onclick="promx_edit('编辑','promx_add.html','2','1000','600')"
+                   class="ml-5" style="text-decoration:none">
+                    <i class="layui-icon">&#xe642;</i>
+                </a>
+                <a title="删除" href="javascript:;" onclick="promx_del(this,'2')"
+                   style="text-decoration:none">
+                    <i class="layui-icon">&#xe640;</i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" value="1" name="">
+            </td>
+            <td>
+                1                        </td>
+            <td>
+                金华万府                        </td>
+            <td >
+                2135                        </td>
+            <td >
+                电梯广告位                        </td>
+            <td >
+                500                        </td>
+            <td >
+                500                        </td>
+            <td >
+                测试11                        </td>
+            <td >
+                2020-01-05                        </td>
+
+            <td >
+                2020-01-05 20:18:35                        </td>
+            <td class="td-manage">
+                <a title="编辑" href="javascript:;" onclick="promx_edit('编辑','promx_add.html','1','1000','600')"
+                   class="ml-5" style="text-decoration:none">
+                    <i class="layui-icon">&#xe642;</i>
+                </a>
+                <a title="删除" href="javascript:;" onclick="promx_del(this,'1')"
+                   style="text-decoration:none">
+                    <i class="layui-icon">&#xe640;</i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <el-pagination
+            background
+            :page-size="searchMap.pageSize"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            layout="prev, pager, next ,sizes"
+            style="text-align: right;line-height: 250px;margin-top: 30px"
+            :page-sizes="[5, 10, 20]"
+            :total="total">
+    </el-pagination>
+</div>
+<script src="lib/layui/layui.js" charset="utf-8"></script>
+<script src="js/x-layui.js" charset="utf-8"></script>
+<!--Vue-->
+<script src="js/vue.js" charset="utf-8"></script>
+<!--ElementUI-->
+<script src="js/index.js" charset="utf-8"></script>
+<!--axios-->
+<script src="js/axios.js" charset="utf-8"></script>
+<!--时间插件包Moment-->
+<script src="js/moment.min.js" charset="utf-8"></script>
+<script>
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            total: 1,
+            selectlist:[],
+            communityList: [],
+            searchMap: {
+                "startTime": "",
+                "endTime": "",
+                "name": "",
+                "pageNum": 1,
+                "pageSize": 5
+            },
+            selectDate: ['', ''],
+            pickerOptions: {
+                shortcuts: [{
+                    text: '最近一周',
+                    onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                        picker.$emit('pick', [start, end]);
+                    }
+                }, {
+                    text: '最近一个月',
+                    onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                        picker.$emit('pick', [start, end]);
+                    }
+                }, {
+                    text: '最近三个月',
+                    onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                        picker.$emit('pick', [start, end]);
+                    }
+                }]
+            },
+        },
+        methods: {
+
+            //分页条件查询小区列表
+            search() {
+                // axios.post("/community/search", this.searchMap).then((res) => {
+                //     this.communityList = res.data.data;
+                //     this.total = res.data.total;
+                // })
+            },
+            //pageSize
+            handleSizeChange(pageSize) {
+                this.searchMap.pageSize = pageSize;
+                this.search();
+            },
+            //pageNum
+            handleCurrentChange(pageNum) {
+                this.searchMap.pageNum = pageNum;
+                this.search();
+            },
+            //dateChange,时间改变，列表变化
+            dateChange() {
+                if (this.selectDate == null || this.selectDate.length == 0) {
+                    this.searchMap.startTime = '';
+                    this.searchMap.endTime = '';
+                } else {
+                    if (this.selectDate[0] != null && this.selectDate[0] != '') {
+                        this.searchMap.startTime = this.dateFomat(this.selectDate[0]);
+                    }
+                    if (this.selectDate[1] != null && this.selectDate[1] != '') {
+                        this.searchMap.endTime = this.dateFomat(this.selectDate[1]);
+                    }
+                }
+            },
+
+            Img(url){
+                return "/image"+url;
+            },
+            //日期格式化
+            dateFomat(date, format) {
+                let date1=(new Date(date)).valueOf()-28800000;
+                format = "YYYY-MM-DD HH:mm:ss";
+                if (date == null || format == '') {
+                    format = "YYYY-MM-DD HH:mm:ss";
+                } else {
+                    return moment(date1).format(format);
+                }
+            },
+            /*添加*/
+            admin_add(title, url, w, h) {
+                this.x_admin_show(title, url, w, h);
+            },
+
+            SelectionChange(val){
+                this.selectlist=val;
+            },
+            /*批量删除*/
+            delAll(){
+                this.$confirm('是否要删除这些小区信息', '提示',{
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    let slist=[];
+                    for(let i=0;i<this.selectlist.length;i++){
+                        slist.push(this.selectlist[i].id);
+                    }
+                    console.log(slist);
+                    axios.post("community/deleteAll",{ids:slist}).then((res)=>{
+                        if (res.data.flag){
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+                            //把页面置为1，重新获取列表数据
+                            this.searchMap.pageNum = 1;
+                            this.search();
+                        }
+                    });
+
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+
+            },
+            /*删除*/
+            admin_del(id){
+                this.$confirm('是否删除该小区信息', '提示',{
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    axios.delete("community/deleteById?id="+id).then((res)=>{
+                        if (res.data.flag){
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+                            //把页面置为1，重新获取列表数据
+                            this.searchMap.pageNum = 1;
+                            this.search();
+                        }
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+
+            },
+            //编辑
+            community_edit(title, url, id, w, h) {
+                url = url + "?id=" + id;
+                this.x_admin_show(title, url, w, h);
+            },
+            //弹出层
+            x_admin_show(title, url, w, h) {
+                if (title == null || title == '') {
+                    title = false;
+                }
+                if (url == null || url == '') {
+                    url = "404.html";
+                }
+                if (w == null || w == '') {
+                    w = 800;
+                }
+                if (h == null || h == '') {
+                    h = ($(window).height() - 50);
+                }
+
+                var index = layer.open({
+                    type: 2,
+                    area: [w + 'px', h + 'px'],
+                    fix: false, //不固定
+                    maxmin: true,
+                    shadeClose: true,
+                    shade: 0.4,
+                    title: title,
+                    content: url,
+                    end: function () {
+                        app.$message({
+                            message:'操作成功',
+                            type: "success"
+                        });
+                        app.search();
+                    }
+                });
+            },
+            /*关闭弹出框口*/
+            x_admin_close() {
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index);
+            }
+        },
+
+        created: function () {
+            layui.use(['laydate', 'element', 'laypage', 'layer'], function () {
+                $ = layui.jquery;//jquery
+                layer = layui.layer;//弹出层
+                okLoading.close($);
+                layer.ready(function () { //为了layer.ext.js加载完毕再执行
+                    layer.photos({
+                        photos: '#x-img'
+                        //,shift: 5 //0-6的选择，指定弹出图片动画类型，默认随机
+                    });
+                });
+            });
+            //初始化列表
+            this.search();
+        }
+    });
+
+</script>
+
+</body>
+</html>

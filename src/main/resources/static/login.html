@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>系统登录</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <!--导入ElementUI样式-->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="login-bg">
+<h1 style="color: #0C0C0C;float:left;font-size: 64px;margin: 0 25%;padding:100px 7%;width:50%;height: 50px;line-height: 50px">
+    小区物业管理系统</h1>
+<div id="app">
+
+    <div class="login">
+        <div class="message">系统登录</div>
+        <div id="darkbannerwrap"></div>
+        <el-form :model="user" status-icon :rules="rules" ref="user" label-width="100px"
+                 class="demo-ruleForm">
+            <el-form-item label="用户名" prop="username">
+                <el-input v-model="user.username"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="password">
+                <el-input type="password" v-model="user.password" show-password></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="submitForm('user')">登录</el-button>
+                <a href="register.html" style="margin-left:30px;color: #0000cc">没有账号？去注册</a>
+            </el-form-item>
+        </el-form>
+    </div>
+</div>
+
+<script src="lib/layui/layui.js" charset="utf-8"></script>
+<script src="js/x-layui.js" charset="utf-8"></script>
+<!--Vue-->
+<script src="js/vue.js" charset="utf-8"></script>
+<!--ElementUI-->
+<script src="js/index.js" charset="utf-8"></script>
+<!--axios-->
+<script src="js/axios.js" charset="utf-8"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            user: {
+                "username": "",
+                "password": "",
+            },
+            rules: {
+                username: [
+                    {required: true, message: '请输入用户名', trigger: 'blur'},
+                ],
+                password: [
+                    {required: true, message: '请输入密码', trigger: 'blur'},
+                ]
+            }
+        },
+        methods: {
+            submitForm(user) {
+                this.$refs[user].validate((valid) => {
+                    if (valid) {
+                        axios.post("/user/login", this.user).then((res) => {
+                            if (res.data.flag) {
+                                localStorage.removeItem("user");
+                                localStorage.setItem("user", res.data.data.username);
+                                this.$message({
+                                    "type": "success",
+                                    "message": res.data.message
+                                });
+                                window.location.href = "index.html";
+                            } else {
+
+                                this.$message({
+                                    "type": "error",
+                                    "message": res.data.message
+                                });
+                            }
+                        })
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+
+            },
+        },
+        created: function () {
+            layui.use(['element', 'layer', 'form'], function () {
+                $ = layui.jquery;//jquery
+                lement = layui.element();//面包导航
+                layer = layui.layer;//弹出层
+                form = layui.form();
+                okLoading.close($);
+            })
+
+        },
+    });
+</script>
+</body>
+</html>
