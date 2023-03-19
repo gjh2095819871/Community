@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="css/main.css" media="all">
-    <script type="text/javascript" src="lib/loading/okLoading.js"></script>
+<!--    <script type="text/javascript" src="lib/loading/okLoading.js"></script>-->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!--导入ElementUI样式-->
     <link rel="stylesheet" href="css/index.css">
@@ -58,7 +58,9 @@
                 :data="communityList"
                 border
                 @selection-change="SelectionChange"
-                style="width: 100%">
+                style="width: 100%"
+                :header-cell-style="{background:'#f2f2f2'}"
+        >
             <el-table-column
                     type="selection"
                     width="35">
