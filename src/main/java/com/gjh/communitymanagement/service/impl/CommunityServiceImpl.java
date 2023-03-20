@@ -14,15 +14,16 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Consumer;
 
 @Service
 public class CommunityServiceImpl implements CommunityService {
 
     @Autowired
     private CommunityDao communityDao;
+
+
 
     @Override
     public List<Community> findAll() {
@@ -112,5 +113,19 @@ public class CommunityServiceImpl implements CommunityService {
         queryWrapper.select("id","name");
         List<Map<String, Object>> maps = communityDao.selectMaps(queryWrapper);
         return maps;
+    }
+
+    @Override
+    public Map<String,Integer> searchCount() {
+        QueryWrapper<Community> wrapper = new QueryWrapper<>();
+        wrapper.select("SUM(total_buildings) as total_buildings","SUM(total_households) as total_households");//,"SUM(total_households)"
+        List<Community> communityList= communityDao.selectList(wrapper);
+        Integer buildingSum = communityList.get(0).getTotalBuildings();
+        HashMap<String, Integer> integerHashMap = new HashMap<>();
+        integerHashMap.put("buildingcount",buildingSum);
+        Integer householdSum = communityList.get(0).getTotalHouseholds();
+        integerHashMap.put("homecount",householdSum);
+
+        return integerHashMap;
     }
 }

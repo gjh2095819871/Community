@@ -7,13 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="">
+    <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/buildinglist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/buildinglist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/CommunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/CommunityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/CommunityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/CommunityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/CommunityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/CommunityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/communitylist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/communitylist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/homelist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/homelist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/welcome.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +28,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
   </component>
@@ -161,6 +168,7 @@
       <workItem from="1679201135323" duration="5441000" />
       <workItem from="1679213007735" duration="259000" />
       <workItem from="1679213281756" duration="450000" />
+      <workItem from="1679312413149" duration="8107000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1679224918002</created>
@@ -169,7 +177,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679224918002</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改">
+      <created>1679227148122</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679227148122</updated>
+    </task>
+    <task id="LOCAL-00003" summary="修改">
+      <created>1679228305212</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679228305212</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +210,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="修改" />
     <option name="LAST_COMMIT_MESSAGE" value="修改" />
   </component>

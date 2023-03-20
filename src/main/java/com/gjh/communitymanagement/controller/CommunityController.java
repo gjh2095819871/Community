@@ -72,5 +72,10 @@ public class CommunityController {
         return new Result(true,StatusCode.OK,"ok",allComm);
     }
 
+    @GetMapping("/searchCount")
+    public Result searchCount(){
+        Map<String,Integer> stringIntegerMap=communityService.searchCount();
+        return new Result(true,StatusCode.OK,"ok",stringIntegerMap);
+    }
 
 }

@@ -25,4 +25,6 @@ public interface CommunityService {
     int deleteAll(List list);
 
     List<Map<String, Object>> findAllComm();
+
+    Map<String, Integer> searchCount();
 }
