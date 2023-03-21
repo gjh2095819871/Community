@@ -32,12 +32,12 @@ public class Owner implements Serializable {
     /**
      * 所属小区
      */
-    private Integer community_id;
+    private Integer communityId;
 
     /**
      * 所属房产
      */
-    private Integer house_id;
+    private Integer houseId;
 
     /**
      * 成员名称
@@ -57,7 +57,7 @@ public class Owner implements Serializable {
     /**
      * 联系方式
      */
-    private Integer telephone;
+    private Long telephone;
 
     /**
      * 职业
@@ -82,12 +82,12 @@ public class Owner implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * 出生日期

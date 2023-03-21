@@ -7,12 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="修改">
+    <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="主页栋数统计">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/OwnerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/OwnerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/CommunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/CommunityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/CommunityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/CommunityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/CommunityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/CommunityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/communitylist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/communitylist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/OwnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/OwnerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/personnel_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/personnel_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/welcome.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -31,8 +33,8 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="PUSH_TAGS">
       <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -168,7 +170,8 @@
       <workItem from="1679201135323" duration="5441000" />
       <workItem from="1679213007735" duration="259000" />
       <workItem from="1679213281756" duration="450000" />
-      <workItem from="1679312413149" duration="8107000" />
+      <workItem from="1679312413149" duration="8374000" />
+      <workItem from="1679398290312" duration="7020000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1679224918002</created>
@@ -191,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679228305212</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="主页栋数统计">
+      <created>1679320897417</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679320897417</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +223,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="主页栋数统计" />
+    <option name="LAST_COMMIT_MESSAGE" value="主页栋数统计" />
   </component>
 </project>
