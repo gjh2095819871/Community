@@ -37,7 +37,7 @@ public class Car implements Serializable {
     /**
      * 所属成员（业主）
      */
-    private Integer owner_id;
+    private Integer ownerId;
 
     /**
      * 车辆颜色
@@ -47,7 +47,7 @@ public class Car implements Serializable {
     /**
      * 车牌号
      */
-    private String car_number;
+    private String carNumber;
 
     /**
      * 备注
@@ -57,12 +57,12 @@ public class Car implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
 
 }

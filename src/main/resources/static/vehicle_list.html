@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        车辆添加
+        车辆管理
     </title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -54,74 +54,83 @@
         </el-button>
         <span class="x-right" style="line-height:40px">共有数据：<span class="layui-badge">{{total}}</span> 条</span>
     </xblock>
-    <table class="layui-table">
-        <thead>
-        <tr>
-            <th>
-                <input type="checkbox" name="" value="">
-            </th>
-            <th>
-                ID
-            </th>
-            <th>
-                车辆照片
-            </th>
-            <th>
-                所属成员
-            </th>
+    <template>
+        <el-table
+                :data="carList"
+                border
+                @selection-change="SelectionChange"
+                style="width: 100%"
+                :header-cell-style="{background:'#f2f2f2'}"
+        >
+            <el-table-column
+                    type="selection"
+                    width="35">
+            </el-table-column>
+            <el-table-column
+                    fixed
+                    prop="id"
+                    label="ID"
+                    width="50">
+            </el-table-column>
+            <el-table-column
+                    prop="picture"
+                    label="车辆照片"
+                    width="120">
+                <template slot-scope="scope">
+                    <img :src="Img(scope.row.picture)" width="80" height="42" alt="">
+                </template>
+            </el-table-column>
+            <el-table-column
+                    prop="ownerId"
+                    label="所属成员"
+                    width="100">
+                <template slot-scope="scope">
+                    <span v-text="ownerList[scope.row.ownerId]" ></span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    prop="color"
+                    label="车辆颜色"
+                    width="120">
+            </el-table-column>
+            <el-table-column
+                    prop="carNumber"
+                    label="车牌号"
+                    width="150">
+            </el-table-column>
 
-            <th>
-                车辆颜色
-            </th>
-            <th>
-                车牌号
-            </th>
-            <th>
-                备注
-            </th>
-            <th>
-                创建时间
-            </th>
-            <th>
-                操作
-            </th>
-        </tr>
-        </thead>
-        <tbody id="x-img">
-        <tr>
-            <td>
-                <input type="checkbox" value="1" name="">
-            </td>
-            <td>
-                1                        </td>
-            <td>
-                <img src="./images/tx.jpg" width="50" height="30">
-
-            </td>
-            <td >
-                admin                        </td>
-            <td >
-                XAT0001                        </td>
-            <td >
-                蓝色                        </td>
-            <td >
-                测试11111                        </td>
-            <td >
-                2020-01-02 21:28:42                        </td>
-            <td class="td-manage">
-                <a title="编辑" href="javascript:;" onclick="veh_edit('编辑','vehicle_add.html','1','1000','600')"
-                   class="ml-5" style="text-decoration:none">
-                    <i class="layui-icon">&#xe642;</i>
-                </a>
-                <a title="删除" href="javascript:;" onclick="veh_del(this,'1')"
-                   style="text-decoration:none">
-                    <i class="layui-icon">&#xe640;</i>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
+            <el-table-column
+                    prop="remark"
+                    label="备注"
+                    width="250">
+            </el-table-column>
+            <el-table-column
+                    prop="createTime"
+                    label="创建时间"
+                    width="200">
+                <template slot-scope="scope">
+                    <span v-text="dateFomat(scope.row.createTime)"></span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    fixed="right"
+                    type="index"
+                    label="操作"
+                    width="100">
+                <template slot-scope="scope">
+                    <a title="编辑" href="javascript:;"
+                       @click="car_edit('编辑','vehicle_add.html',carList[scope.$index].id,'1000','600')"
+                       class="ml-5" style="text-decoration:none">
+                        <i class="el-icon-edit-outline"></i>&nbsp;&nbsp;
+                    </a>
+                    <a title="删除" href="javascript:;" @click="admin_del(carList[scope.$index].id)"
+                       style="text-decoration:none">
+                        <i class="el-icon-delete"></i>
+                    </a>
+                </template>
+            </el-table-column>
+        </el-table>
+    </template>
     <el-pagination
             background
             :page-size="searchMap.pageSize"
@@ -150,7 +159,8 @@
         data: {
             total: 1,
             selectlist:[],
-            communityList: [],
+            ownerList: {},
+            carList:[],
             searchMap: {
                 "startTime": "",
                 "endTime": "",
@@ -191,10 +201,10 @@
 
             //分页条件查询小区列表
             search() {
-                // axios.post("/community/search", this.searchMap).then((res) => {
-                //     this.communityList = res.data.data;
-                //     this.total = res.data.total;
-                // })
+                axios.post("/car/search", this.searchMap).then((res) => {
+                    this.carList = res.data.data;
+                    this.total = res.data.total;
+                })
             },
             //pageSize
             handleSizeChange(pageSize) {
@@ -301,7 +311,7 @@
 
             },
             //编辑
-            community_edit(title, url, id, w, h) {
+            car_edit(title, url, id, w, h) {
                 url = url + "?id=" + id;
                 this.x_admin_show(title, url, w, h);
             },
@@ -342,7 +352,18 @@
             x_admin_close() {
                 var index = parent.layer.getFrameIndex(window.name);
                 parent.layer.close(index);
-            }
+            },
+
+            /*查询所有小区名称*/
+            findAllOwn() {
+                axios.get("/owner/findAllOwn").then((res) => {
+                    var odata = res.data.data;
+                    for(let i=0;i<odata.length;i++){
+                        this.ownerList[odata[i].id]=odata[i].name;
+                    }
+
+                })
+            },
         },
 
         created: function () {
@@ -359,6 +380,7 @@
             });
             //初始化列表
             this.search();
+            this.findAllOwn();
         }
     });
 

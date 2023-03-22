@@ -25,4 +25,6 @@ public interface OwnerService extends IService<Owner> {
     int deleteById(int id);
 
     int deleteAll(List list);
+
+    List<Map<String, Object>> findAllOwn();
 }

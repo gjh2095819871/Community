@@ -7,14 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="主页栋数统计">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/OwnerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/OwnerServiceImpl.java" afterDir="false" />
+    <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="功能添加">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/CarServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/CarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/HouseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/HouseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/OwnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/OwnerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/CarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/HouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/HouseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/OwnerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/OwnerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/HouseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/HouseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/OwnerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/OwnerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/personnel_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/personnel_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/vehicle_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/vehicle_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +71,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gjh-community" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -79,6 +85,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\spring-project\code\Community\src\main\java\com\gjh\communitymanagement\service\impl" />
       <recent name="D:\spring-project\code\Community\src\main\resources\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -171,7 +178,8 @@
       <workItem from="1679213007735" duration="259000" />
       <workItem from="1679213281756" duration="450000" />
       <workItem from="1679312413149" duration="8374000" />
-      <workItem from="1679398290312" duration="7020000" />
+      <workItem from="1679398290312" duration="7609000" />
+      <workItem from="1679486146482" duration="4007000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1679224918002</created>
@@ -201,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679320897417</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="功能添加">
+      <created>1679405778218</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679405778218</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +239,7 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="修改" />
     <MESSAGE value="主页栋数统计" />
-    <option name="LAST_COMMIT_MESSAGE" value="主页栋数统计" />
+    <MESSAGE value="功能添加" />
+    <option name="LAST_COMMIT_MESSAGE" value="功能添加" />
   </component>
 </project>

@@ -11,6 +11,7 @@ import com.gjh.communitymanagement.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -49,6 +50,12 @@ public class HouseController {
     public Result update(@RequestBody House house) {
         Boolean update = houseService.update(house);
         return new Result(update, StatusCode.OK, MessageConstant.COMMUNITY_UPDATE_SUCCESS);
+    }
+
+    @RequestMapping("/findAllHou")
+    public Result findAllHou(){
+        List<Map<String, Object>> allComm = houseService.findAllHou();
+        return new Result(true,StatusCode.OK,"ok",allComm);
     }
 }
 

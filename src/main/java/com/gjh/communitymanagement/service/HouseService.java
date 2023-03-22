@@ -28,4 +28,5 @@ public interface HouseService {
 
     int deleteAll(List list);
 
+    List<Map<String, Object>> findAllHou();
 }

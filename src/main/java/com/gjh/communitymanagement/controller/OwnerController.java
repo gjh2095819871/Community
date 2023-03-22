@@ -4,6 +4,7 @@ package com.gjh.communitymanagement.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.gjh.communitymanagement.common.MessageConstant;
 import com.gjh.communitymanagement.common.PageResult;
+import com.gjh.communitymanagement.common.Result;
 import com.gjh.communitymanagement.common.StatusCode;
 import com.gjh.communitymanagement.domain.Community;
 import com.gjh.communitymanagement.domain.Owner;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +37,12 @@ public class OwnerController {
     public PageResult search(@RequestBody Map searchMap) {
         IPage<Owner> ownerIPage = ownerService.search(searchMap);
         return new PageResult(true, StatusCode.OK, MessageConstant.COMMUNITY_SEARCH_SUCCESS, ownerIPage.getRecords(), ownerIPage.getTotal());
+    }
+
+    @RequestMapping("/findAllOwn")
+    public Result findAllOwn(){
+        List<Map<String, Object>> allComm = ownerService.findAllOwn();
+        return new Result(true,StatusCode.OK,"ok",allComm);
     }
 }
 

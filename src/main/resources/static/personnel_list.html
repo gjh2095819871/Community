@@ -76,13 +76,16 @@
                     label="所属小区"
                     width="120">
                 <template slot-scope="scope">
-                    <span v-text="communityList[scope.row.communityId-1].name" ></span>
+                    <span v-text="communityList[scope.row.communityId]" ></span>
                 </template>
             </el-table-column>
             <el-table-column
                     prop="houseId"
                     label="所属房产"
                     width="120">
+                <template slot-scope="scope">
+                    <span v-text="houseList[scope.row.houseId]" ></span>
+                </template>
             </el-table-column>
             <el-table-column
                     prop="name"
@@ -189,8 +192,8 @@
             total: 1,
             selectlist:[],
             ownerList: [],
-            communityList:[],
-            houseList:[],
+            communityList:{},
+            houseList:{},
             searchMap: {
                 "startTime": "",
                 "endTime": "",
@@ -387,7 +390,21 @@
             /*查询所有小区名称*/
             findAllComm() {
                 axios.get("/community/findAllComm").then((res) => {
-                    this.communityList = res.data.data;
+                    var cdata = res.data.data;
+                    for(let i=0;i<cdata.length;i++){
+                        this.communityList[cdata[i].id]=cdata[i].name;
+                    }
+
+                })
+            },
+            /*查询所有房屋名称*/
+            findAllHou() {
+                axios.get("/house/findAllHou").then((res) => {
+                    var hdata = res.data.data;
+                    for(let i=0;i<hdata.length;i++){
+                        this.houseList[hdata[i].id]=hdata[i].name;
+                    }
+
                 })
             },
 
@@ -409,6 +426,7 @@
             //初始化列表
             this.search();
             this.findAllComm();
+            this.findAllHou();
         }
     });
 

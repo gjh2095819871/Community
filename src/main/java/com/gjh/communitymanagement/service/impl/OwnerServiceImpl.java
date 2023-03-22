@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.util.StringUtil;
 import com.gjh.communitymanagement.dao.OwnerDao;
 import com.gjh.communitymanagement.domain.Building;
+import com.gjh.communitymanagement.domain.Community;
 import com.gjh.communitymanagement.domain.Owner;
 import com.gjh.communitymanagement.service.OwnerService;
 import org.apache.commons.lang3.time.DateFormatUtils;
@@ -106,6 +107,14 @@ public class OwnerServiceImpl extends ServiceImpl<OwnerDao,Owner> implements Own
     @Override
     public int deleteAll(List list) {
         return 0;
+    }
+
+    @Override
+    public List<Map<String, Object>> findAllOwn() {
+        QueryWrapper<Owner> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("id","name");
+        List<Map<String, Object>> maps = ownerDao.selectMaps(queryWrapper);
+        return maps;
     }
 
 
