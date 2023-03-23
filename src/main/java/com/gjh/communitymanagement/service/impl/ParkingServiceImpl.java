@@ -1,17 +1,14 @@
 package com.gjh.communitymanagement.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.util.StringUtil;
-import com.gjh.communitymanagement.dao.OwnerDao;
-import com.gjh.communitymanagement.domain.Building;
-import com.gjh.communitymanagement.domain.Community;
-import com.gjh.communitymanagement.domain.Owner;
-import com.gjh.communitymanagement.service.OwnerService;
+import com.gjh.communitymanagement.dao.ParkingDao;
+import com.gjh.communitymanagement.domain.Parking;
+import com.gjh.communitymanagement.domain.Pet;
+import com.gjh.communitymanagement.service.ParkingService;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,24 +16,25 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.function.Function;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author guojianhui
- * @ClassName: OwnerServiceImpl
+ * @ClassName: ParkingServiceImpl
  * @Version 1.0
  */
 @Service
-public class OwnerServiceImpl extends ServiceImpl<OwnerDao,Owner> implements OwnerService {
+public class ParkingServiceImpl extends ServiceImpl<ParkingDao, Parking> implements ParkingService {
 
     @Autowired
-    private OwnerDao ownerDao;
+    private ParkingDao parkingDao;
 
     @Override
-    public IPage<Owner> search(Map searchMap) {
+    public IPage<Parking> search(Map searchMap) {
         //通用写法
-        QueryWrapper<Owner> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<Parking> queryWrapper = new QueryWrapper<>();
         int pageNum = 1;
         int pageSize = 2;
         if (!searchMap.isEmpty()) {
@@ -62,7 +60,7 @@ public class OwnerServiceImpl extends ServiceImpl<OwnerDao,Owner> implements Own
                 queryWrapper.apply("UNIX_TIMESTAMP(create_time) <= (UNIX_TIMESTAMP('" + strEnd + "')+115200)");
             }
             if (StringUtil.isNotEmpty((String) searchMap.get("name"))) {
-                queryWrapper.like("name", (String) searchMap.get("name"));
+                queryWrapper.like("code", (String) searchMap.get("name"));
             }
             if (StringUtil.isNotEmpty(searchMap.get("pageNum").toString())) {
                 pageNum = Integer.parseInt(searchMap.get("pageNum").toString());
@@ -74,25 +72,25 @@ public class OwnerServiceImpl extends ServiceImpl<OwnerDao,Owner> implements Own
         }
 
 
-        IPage<Owner> page = new Page<>(pageNum, pageSize);
+        IPage<Parking> page = new Page<>(pageNum, pageSize);
 
 
-        IPage<Owner> ownerIPage = ownerDao.selectPage(page, queryWrapper);
-        return ownerIPage;
+        IPage<Parking> parkingIPage = parkingDao.selectPage(page, queryWrapper);
+        return parkingIPage;
     }
 
     @Override
-    public Boolean add(Owner owner) {
+    public Boolean add(Parking parking) {
         return null;
     }
 
     @Override
-    public Boolean update(Owner owner) {
+    public Boolean update(Parking parking) {
         return null;
     }
 
     @Override
-    public Owner findById(int id) {
+    public Parking findById(int id) {
         return null;
     }
 
@@ -105,27 +103,4 @@ public class OwnerServiceImpl extends ServiceImpl<OwnerDao,Owner> implements Own
     public int deleteAll(List list) {
         return 0;
     }
-
-    @Override
-    public List<Map<String, Object>> findAllOwn() {
-        QueryWrapper<Owner> queryWrapper = new QueryWrapper<>();
-        queryWrapper.select("id","name");
-        List<Map<String, Object>> maps = ownerDao.selectMaps(queryWrapper);
-        return maps;
-    }
-
-    @Override
-    public Map<String, Integer> searchCount() {
-        QueryWrapper<Owner> queryWrapper = new QueryWrapper<>();
-        queryWrapper.select("type");
-        List<Owner> owners = ownerDao.selectList(queryWrapper);
-        HashMap<String, Integer> integerHashMap = new HashMap<>();
-        integerHashMap.put("peoplecount",owners.size());
-        long count = owners.stream().filter(str->str.getType().contains("1")).count();
-        integerHashMap.put("ownercount", Math.toIntExact(count));
-
-        return integerHashMap;
-    }
-
-
 }

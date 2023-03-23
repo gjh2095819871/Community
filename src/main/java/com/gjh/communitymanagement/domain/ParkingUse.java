@@ -32,12 +32,12 @@ public class ParkingUse implements Serializable {
     /**
      * 所属小区名称
      */
-    private String community_name;
+    private String communityName;
 
     /**
      * 所属小区ID
      */
-    private Integer community_id;
+    private Integer communityId;
 
     /**
      * 车位编号
@@ -47,7 +47,7 @@ public class ParkingUse implements Serializable {
     /**
      * 车牌号码
      */
-    private String car_number;
+    private String carNumber;
 
     /**
      * 车辆牌照（照片）
@@ -57,47 +57,47 @@ public class ParkingUse implements Serializable {
     /**
      * 车辆所有人（业主）名称
      */
-    private String owner_name;
+    private String ownerName;
 
     /**
      * 车辆所有人（业主）ID
      */
-    private Integer owner_id;
+    private Integer ownerId;
 
     /**
      * 联系方式
      */
-    private Integer telephone;
+    private Long telephone;
 
     /**
      * 使用性质：0-购买(默认)，1-月租，2-年租
      */
-    private String use_type;
+    private String useType;
 
     /**
      * 总费用(￥)，以分为单位
      */
-    private Integer total_fee;
+    private Integer totalFee;
 
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * （使用）开始时间
      */
-    private LocalDateTime start_time;
+    private LocalDateTime startTime;
 
     /**
      * （使用）结束时间
      */
-    private LocalDateTime end_time;
+    private LocalDateTime endTime;
 
 
 }

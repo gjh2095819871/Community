@@ -81,7 +81,7 @@
                 <div class="value tab-menu" bind="1">
                     <a href="javascript:;" data-url="user-info.html" data-parent="true" data-title="总人数"> <i
                             class="iconfont " data-icon=""></i>
-                        <h1>8310</h1>
+                        <h1>{{peoplecount}}</h1>
                     </a>
                     <a href="javascript:;" data-url="user-info.html" data-parent="true" data-title="总人数"> <i
                             class="iconfont " data-icon=""></i><span>总人数</span></a>
@@ -96,7 +96,7 @@
                 <div class="value tab-menu" bind="1">
                     <a href="javascript:;" data-url="user-info.html" data-parent="true" data-title="租户数量"> <i
                             class="iconfont " data-icon=""></i>
-                        <h1>1314</h1>
+                        <h1>{{ownercount}}</h1>
                     </a>
                     <a href="javascript:;" data-url="user-info.html" data-parent="true" data-title="租户数量"> <i
                             class="iconfont " data-icon=""></i><span>租户数量</span></a>
@@ -318,7 +318,13 @@
                     axios.get("/community/searchCount").then((res) => {
                         this.buildingcount = res.data.data.buildingcount;
                         this.homecount = res.data.data.homecount;
-                    })
+                    });
+                },
+                search2(){
+                    axios.get("/owner/searchCount").then((res) => {
+                        this.peoplecount = res.data.data.peoplecount;
+                        this.ownercount = res.data.data.ownercount;
+                    });
                 },
                 <!--投诉-->
                 initeChart1(){
@@ -718,7 +724,7 @@
             },
             created: function () {
                 this.search();
-
+                this.search2();
             }
 
         });

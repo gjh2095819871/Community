@@ -37,12 +37,12 @@ public class Pet implements Serializable {
     /**
      * 所属成员（业主）名称
      */
-    private String owner_name;
+    private String ownerName;
 
     /**
      * 所属成员（业主）ID
      */
-    private Integer owner_id;
+    private Integer ownerId;
 
     /**
      * 宠物名称
@@ -62,17 +62,17 @@ public class Pet implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * 收养时间
      */
-    private LocalDateTime adopt_time;
+    private LocalDateTime adoptTime;
 
 
 }

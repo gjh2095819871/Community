@@ -10,6 +10,7 @@ import com.gjh.communitymanagement.domain.Community;
 import com.gjh.communitymanagement.domain.Owner;
 import com.gjh.communitymanagement.service.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -43,6 +44,12 @@ public class OwnerController {
     public Result findAllOwn(){
         List<Map<String, Object>> allComm = ownerService.findAllOwn();
         return new Result(true,StatusCode.OK,"ok",allComm);
+    }
+
+    @GetMapping("/searchCount")
+    public Result searchCount(){
+        Map<String,Integer> stringIntegerMap=ownerService.searchCount();
+        return new Result(true,StatusCode.OK,"ok",stringIntegerMap);
     }
 }
 
