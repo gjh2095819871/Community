@@ -32,12 +32,12 @@ public class ChargeItem implements Serializable {
     /**
      * 所属小区ID
      */
-    private Integer community_id;
+    private Integer communityId;
 
     /**
      * 所属小区名称
      */
-    private String community_name;
+    private String communityName;
 
     /**
      * 收费编号
@@ -52,12 +52,12 @@ public class ChargeItem implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * 项目收费金额（年），单位分

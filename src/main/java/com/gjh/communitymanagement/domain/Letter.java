@@ -32,22 +32,22 @@ public class Letter implements Serializable {
     /**
      * 所属小区ID
      */
-    private Integer community_id;
+    private Integer communityId;
 
     /**
      * 所属小区名称
      */
-    private String community_name;
+    private String communityName;
 
     /**
      * 信件发送者（业主）ID
      */
-    private Integer owner_id;
+    private Integer ownerId;
 
     /**
      * 信件发送者（业主）名称
      */
-    private String owner_name;
+    private String ownerName;
 
     /**
      * 信件来源：0-信箱（默认），1-邮件，2-微信，3-公众号，4-app,5-pc
@@ -67,12 +67,12 @@ public class Letter implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * 状态:0-未读（默认），1-已读

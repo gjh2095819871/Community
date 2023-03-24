@@ -32,12 +32,12 @@ public class Device implements Serializable {
     /**
      * 所属小区名称
      */
-    private String community_name;
+    private String communityName;
 
     /**
      * 所属小区ID
      */
-    private Integer community_id;
+    private Integer communityId;
 
     /**
      * 设备编号
@@ -57,7 +57,7 @@ public class Device implements Serializable {
     /**
      * 购买单价(￥)，单位分
      */
-    private Integer unit_price;
+    private Integer unitPrice;
 
     /**
      * 购买数量
@@ -67,22 +67,22 @@ public class Device implements Serializable {
     /**
      * 预计使用年限(年)
      */
-    private Integer expected_useful_life;
+    private Integer expectedUsefulLife;
 
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * 购买日期
      */
-    private LocalDateTime purchase_date;
+    private LocalDateTime purchaseDate;
 
 
 }

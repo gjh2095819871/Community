@@ -8,26 +8,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="接口优化，添加功能">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/ParkingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/ParkinguseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/PetService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/ParkingServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/ParkinguseServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/PetServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/ActivityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/ComplaintService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/DeviceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/LetterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/RepairService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/ActivityServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/ComplaintServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/DeviceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/LetterServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/RepairServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/OwnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/OwnerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ParkingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ParkingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ParkingUseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ParkingUseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Parking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Parking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ParkingUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ParkingUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Pet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/OwnerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/OwnerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/OwnerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/OwnerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/parkinglist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/parkinglist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/parkingusagelist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/parkingusagelist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pet_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pet_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ChargeDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ChargeDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ChargeItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ChargeItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Complaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Complaint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Letter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Repair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Repair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/BuildingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/BuildingServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +64,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="2LZnKyaEEeBKPeE56D97O4zBXyg" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -87,6 +89,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.348226" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -187,7 +190,8 @@
       <workItem from="1679312413149" duration="8374000" />
       <workItem from="1679398290312" duration="7609000" />
       <workItem from="1679486146482" duration="5257000" />
-      <workItem from="1679575710023" duration="5130000" />
+      <workItem from="1679575710023" duration="5575000" />
+      <workItem from="1679662706951" duration="988000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1679224918002</created>
@@ -231,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679492530538</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="接口优化，添加功能">
+      <created>1679580888964</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679580888964</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -32,42 +32,42 @@ public class Repair implements Serializable {
     /**
      * 所属小区名称
      */
-    private String community_name;
+    private String communityName;
 
     /**
      * 所属小区ID
      */
-    private Integer community_id;
+    private Integer communityId;
 
     /**
      * 所属楼栋名称
      */
-    private String building_name;
+    private String buildingName;
 
     /**
      * 所属楼栋ID
      */
-    private Integer building_id;
+    private Integer buildingId;
 
     /**
      * 报修人员（业主）名称
      */
-    private String owner_name;
+    private String ownerName;
 
     /**
      * 报修人员（业主）ID
      */
-    private Integer owner_id;
+    private Integer ownerId;
 
     /**
      * 设备名称
      */
-    private String device_name;
+    private String deviceName;
 
     /**
      * 设备编号ID
      */
-    private Integer device_id;
+    private Integer deviceId;
 
     /**
      * 报修描述
@@ -77,12 +77,12 @@ public class Repair implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * 状态：0-待受理，1-已受理，2-修理完毕

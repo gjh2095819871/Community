@@ -32,22 +32,22 @@ public class ChargeDetail implements Serializable {
     /**
      * 所属小区ID
      */
-    private Integer community_id;
+    private Integer communityId;
 
     /**
      * 所属小区名称
      */
-    private String community_name;
+    private String communityName;
 
     /**
      * 收费项目ID
      */
-    private Integer charge_item_id;
+    private Integer chargeItemId;
 
     /**
      * 收费项目名称
      */
-    private String charge_item_name;
+    private String chargeItemName;
 
     /**
      * 承办人名称
@@ -57,32 +57,32 @@ public class ChargeDetail implements Serializable {
     /**
      * 承办人联系电话
      */
-    private Integer telephone;
+    private Long telephone;
 
     /**
      * 应收金额(￥)，单位分
      */
-    private Integer pay_money;
+    private Integer payMoney;
 
     /**
      * 实收金额(￥)，单位分
      */
-    private Integer actual_money;
+    private Integer actualMoney;
 
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * 缴费时间
      */
-    private LocalDateTime pay_time;
+    private LocalDateTime payTime;
 
     /**
      * 状态：0-生效中（默认），1-已过期

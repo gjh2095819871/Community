@@ -32,22 +32,22 @@ public class Complaint implements Serializable {
     /**
      * 所属小区名称
      */
-    private String community_name;
+    private String communityName;
 
     /**
      * 所属小区ID
      */
-    private Integer community_id;
+    private Integer communityId;
 
     /**
      * 投诉人员（业主）ID
      */
-    private Integer owner_id;
+    private Integer ownerId;
 
     /**
      * 投诉人员（业主）名称
      */
-    private String owner_name;
+    private String ownerName;
 
     /**
      * 投诉具体描述
@@ -62,12 +62,12 @@ public class Complaint implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * 状态：0-未受理，1-已受理（默认），2-已处理完毕

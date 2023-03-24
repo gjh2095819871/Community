@@ -32,12 +32,12 @@ public class Activity implements Serializable {
     /**
      * 所属小区名称
      */
-    private String community_name;
+    private String communityName;
 
     /**
      * 所属小区ID
      */
-    private Integer community_id;
+    private Integer communityId;
 
     /**
      * 活动标题
@@ -57,22 +57,22 @@ public class Activity implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
     /**
      * 活动开始时间
      */
-    private LocalDateTime start_time;
+    private LocalDateTime startTime;
 
     /**
      * 活动截止时间
      */
-    private LocalDateTime end_time;
+    private LocalDateTime endTime;
 
     /**
      * 状态:0-活动未开始（默认），1-活动进行中，2-活动已结束
