@@ -54,149 +54,102 @@
         </el-button>
         <span class="x-right" style="line-height:40px">共有数据：<span class="layui-badge">{{total}}</span> 条</span>
     </xblock>
-    <table class="layui-table">
-        <thead>
-        <tr>
-            <th>
-                <input type="checkbox" name="" value="">
-            </th>
-            <th>
-                ID
-            </th>
-            <th>
-                所属小区
-            </th>
-            <th>
-                收费项目
-            </th>
-            <th>
-                业主
-            </th>
-            <th>
-                应收金额(￥)
-            </th>
-            <th>
-                实收金额(￥)
-            </th>
-            <th>
-                备注
-            </th>
-            <th>
-                缴费时间
-            </th>
-            <th>
-                创建时间
-            </th>
-            <th>
-                操作
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <input type="checkbox" value="1" name="">
-            </td>
-            <td>
-                3                        </td>
-            <td>
-                东湖小区                        </td>
-            <td >
-                admin                        </td>
-            <td >
-                电梯广告位1                        </td>
-            <td >
-                500                        </td>
-            <td >
-                500                        </td>
-            <td >
-            </td>
-            <td >
-                2020-01-05                        </td>
 
-            <td >
-                2020-01-05 20:19:40                        </td>
-            <td class="td-manage">
-                <a title="编辑" href="javascript:;" onclick="promx_edit('编辑','promx_add.html','3','1000','600')"
-                   class="ml-5" style="text-decoration:none">
-                    <i class="layui-icon">&#xe642;</i>
-                </a>
-                <a title="删除" href="javascript:;" onclick="promx_del(this,'3')"
-                   style="text-decoration:none">
-                    <i class="layui-icon">&#xe640;</i>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" value="1" name="">
-            </td>
-            <td>
-                2                        </td>
-            <td>
-                东湖小区                        </td>
-            <td >
-                admin                        </td>
-            <td >
-                停车位                        </td>
-            <td >
-                50                        </td>
-            <td >
-                50                        </td>
-            <td >
-                车位测试                        </td>
-            <td >
-                2020-01-05                        </td>
+    <template>
+        <el-table
+                :data="chargeDetailList"
+                border
+                @selection-change="SelectionChange"
+                style="width: 100%"
+                :header-cell-style="{background:'#f2f2f2'}"
+        >
+            <el-table-column
+                    type="selection"
+                    width="35">
+            </el-table-column>
+            <el-table-column
+                    fixed
+                    prop="id"
+                    label="ID"
+                    width="50">
+            </el-table-column>
+            <el-table-column
+                    prop="communityName"
+                    label="所属小区"
+                    width="120">
+            </el-table-column>
+            <el-table-column
+                    prop="chargeItemName"
+                    label="收费项目名称"
+                    width="100">
+            </el-table-column>
+            <el-table-column
+                    prop="contractor"
+                    label="负责人"
+                    width="120">
+            </el-table-column>
+            <el-table-column
+                    prop="telephone"
+                    label="联系电话"
+                    width="150">
+            </el-table-column>
+            <el-table-column
+                    prop="payMoney"
+                    label="应收（￥）元"
+                    width="150">
+            </el-table-column>
+            <el-table-column
+                    prop="actualMoney"
+                    label="实收（￥）元"
+                    width="150">
+            </el-table-column>
+            <el-table-column
+                    prop="status"
+                    label="收费方式"
+                    width="150">
+                <template slot-scope="scope">
+                    <el-button  :type="scope.row.status === '0' ? 'success' : 'primary'"
+                                :icon="scope.row.status === '0' ? 'el-icon-check' : 'el-icon-close'"
+                                v-text="scope.row.status === '0' ? '现金' : '微信/支付宝'" ></el-button>
+                </template>
 
-            <td >
-                2020-01-05 20:19:11                        </td>
-            <td class="td-manage">
-                <a title="编辑" href="javascript:;" onclick="promx_edit('编辑','promx_add.html','2','1000','600')"
-                   class="ml-5" style="text-decoration:none">
-                    <i class="layui-icon">&#xe642;</i>
-                </a>
-                <a title="删除" href="javascript:;" onclick="promx_del(this,'2')"
-                   style="text-decoration:none">
-                    <i class="layui-icon">&#xe640;</i>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" value="1" name="">
-            </td>
-            <td>
-                1                        </td>
-            <td>
-                金华万府                        </td>
-            <td >
-                2135                        </td>
-            <td >
-                电梯广告位                        </td>
-            <td >
-                500                        </td>
-            <td >
-                500                        </td>
-            <td >
-                测试11                        </td>
-            <td >
-                2020-01-05                        </td>
+            </el-table-column>
+            <el-table-column
+                    prop="payTime"
+                    label="收费时间"
+                    width="200">
+                <template slot-scope="scope">
+                    <span v-text="dateFomat(scope.row.payTime)"></span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    prop="createTime"
+                    label="创建时间"
+                    width="200">
+                <template slot-scope="scope">
+                    <span v-text="dateFomat(scope.row.createTime)"></span>
+                </template>
+            </el-table-column>
 
-            <td >
-                2020-01-05 20:18:35                        </td>
-            <td class="td-manage">
-                <a title="编辑" href="javascript:;" onclick="promx_edit('编辑','promx_add.html','1','1000','600')"
-                   class="ml-5" style="text-decoration:none">
-                    <i class="layui-icon">&#xe642;</i>
-                </a>
-                <a title="删除" href="javascript:;" onclick="promx_del(this,'1')"
-                   style="text-decoration:none">
-                    <i class="layui-icon">&#xe640;</i>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            <el-table-column
+                    fixed="right"
+                    type="index"
+                    label="操作"
+                    width="100">
+                <template slot-scope="scope">
+                    <a title="编辑" href="javascript:;"
+                       @click="promx_edit('编辑','promx_add.html',chargeDetailList[scope.$index].id,'1000','600')"
+                       class="ml-5" style="text-decoration:none">
+                        <i class="el-icon-edit-outline"></i>&nbsp;&nbsp;
+                    </a>
+                    <a title="删除" href="javascript:;" @click="admin_del(chargeDetailList[scope.$index].id)"
+                       style="text-decoration:none">
+                        <i class="el-icon-delete"></i>
+                    </a>
+                </template>
+            </el-table-column>
+        </el-table>
+    </template>
 
 
     <el-pagination
@@ -227,7 +180,7 @@
         data: {
             total: 1,
             selectlist:[],
-            communityList: [],
+            chargeDetailList: [],
             searchMap: {
                 "startTime": "",
                 "endTime": "",
@@ -268,10 +221,10 @@
 
             //分页条件查询小区列表
             search() {
-                // axios.post("/community/search", this.searchMap).then((res) => {
-                //     this.communityList = res.data.data;
-                //     this.total = res.data.total;
-                // })
+                axios.post("/charge_detail/search", this.searchMap).then((res) => {
+                    this.chargeDetailList = res.data.data;
+                    this.total = res.data.total;
+                })
             },
             //pageSize
             handleSizeChange(pageSize) {
@@ -378,7 +331,7 @@
 
             },
             //编辑
-            community_edit(title, url, id, w, h) {
+            promx_edit(title, url, id, w, h) {
                 url = url + "?id=" + id;
                 this.x_admin_show(title, url, w, h);
             },

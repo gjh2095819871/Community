@@ -8,25 +8,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="接口优化，添加功能">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/ActivityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/ComplaintService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/DeviceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/LetterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/RepairService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/ActivityServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/ComplaintServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/DeviceServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/LetterServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/RepairServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fileupload/122b8007-bea0-4507-ad23-f86721c57315.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fileupload/1dda8857-178a-4ecb-97b2-ddda30885507.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fileupload/3cb522a3-6383-43be-9f30-228d730c6646.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fileupload/6ff511bd-e81a-418e-b4d0-664f9152f10f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fileupload/77030e72-4494-4b40-8469-1d9295e81cac.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fileupload/d057c823-ec0d-4731-a5a3-39483c341b96.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fileupload/d1019888-8c98-46c9-9fcd-980885a23ef5.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ChargeDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ChargeDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ChargeItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/ChargeItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Complaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Complaint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Letter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Repair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/domain/Repair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/BuildingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl/BuildingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ActivityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ChargeDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ChargeDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ChargeItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ChargeItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ComplaintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/ComplaintController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/DeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/DeviceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/LetterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/LetterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/RepairController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/controller/RepairController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/activity_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/activity_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/adminlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/adminlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/complainlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/complainlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/device_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/device_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/140e1d17-1aa9-4137-8c33-7c77fe411b67.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/22327a10-ffe2-4cc6-bde0-3e6ee550d93b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/39d0b1c3-1a99-40b8-a7c1-9e0b405f997c.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/816a844a-d04d-4d80-8070-9e3dc0d6c351.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/92e29310-d8fa-41b9-a782-27e2d4933c87.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/9c7aede4-32a7-469b-94c4-d0414cb3c983.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/cc311799-e1a7-46a6-83f0-bc911f0871c1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/d3560015-2e68-48a6-bb80-fe49d514da18.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/d41966eb-c39e-481e-bcdc-06d034a5b4ab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fileupload/df9ad6e3-210f-47d3-aaa6-d5c77fc7557c.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/mailboxlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/mailboxlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pro_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pro_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/promx_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/promx_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/repairlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/repairlist.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +82,14 @@
     <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="2LZnKyaEEeBKPeE56D97O4zBXyg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -80,7 +98,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/gjh/communitymanagement/service/impl" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -90,15 +108,17 @@
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.348226" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\spring-project\code\Community\src\main\resources" />
       <recent name="D:\spring-project\code\Community\src\main\java\com\gjh\communitymanagement\service\impl" />
       <recent name="D:\spring-project\code\Community\src\main\resources\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\spring-project\code\Community\src\main\resources\static" />
       <recent name="D:\spring-project\code\Community\target\classes\static\css" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -191,7 +211,8 @@
       <workItem from="1679398290312" duration="7609000" />
       <workItem from="1679486146482" duration="5257000" />
       <workItem from="1679575710023" duration="5575000" />
-      <workItem from="1679662706951" duration="988000" />
+      <workItem from="1679662706951" duration="2027000" />
+      <workItem from="1679740418271" duration="7976000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1679224918002</created>
@@ -242,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679580888964</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="接口优化，添加功能">
+      <created>1679664004212</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679664004212</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +291,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="修改" />
     <MESSAGE value="主页栋数统计" />
     <MESSAGE value="功能添加" />

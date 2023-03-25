@@ -54,120 +54,97 @@
         </el-button>
         <span class="x-right" style="line-height:40px">共有数据：<span class="layui-badge">{{total}}</span> 条</span>
     </xblock>
-    <table class="layui-table">
-        <thead>
-        <tr>
-            <th>
-                <input type="checkbox" name="" value="">
-            </th>
-            <th>
-                ID
-            </th>
-            <th>
-                所属小区
-            </th>
-            <th>
-                设备编号
-            </th>
-            <th>
-                设备名称
-            </th>
-            <th>
-                品牌
-            </th>
-            <th>
-                购买单价(￥)
-            </th>
-            <th>
-                购买数量
-            </th>
-            <th>
-                购买日期
-            </th>
-            <th>
-                预计使用年限(年)
-            </th>
-            <th>
-                创建时间
-            </th>
-            <th>
-                操作
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <input type="checkbox" value="1" name="">
-            </td>
-            <td>
-                3                        </td>
-            <td>
-                金华万府                        </td>
-            <td >
-                CJ20200105002                        </td>
-            <td >
-                大疆无人机                        </td>
-            <td >
-                大疆                        </td>
-            <td >
-                1000                        </td>
-            <td >
-                1                        </td>
-            <td >
-                2020-01-05                        </td>
-            <td >
-                5                        </td>
-            <td >
-                2020-01-05 14:13:01                        </td>
-            <td class="td-manage">
-                <a title="编辑" href="javascript:;" onclick="device_edit('编辑','device_add.html','3','1000','600')"
-                   class="ml-5" style="text-decoration:none">
-                    <i class="layui-icon">&#xe642;</i>
-                </a>
-                <a title="删除" href="javascript:;" onclick="device_del(this,'3')"
-                   style="text-decoration:none">
-                    <i class="layui-icon">&#xe640;</i>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" value="1" name="">
-            </td>
-            <td>
-                1                        </td>
-            <td>
-                东湖小区                        </td>
-            <td >
-            </td>
-            <td >
-                垃圾箱                        </td>
-            <td >
-                admin                        </td>
-            <td >
-                50                        </td>
-            <td >
-                1                        </td>
-            <td >
-                2020-01-05                        </td>
-            <td >
-                2                        </td>
-            <td >
-                2020-01-04 23:00:38                        </td>
-            <td class="td-manage">
-                <a title="编辑" href="javascript:;" onclick="device_edit('编辑','device_add.html','1','1000','600')"
-                   class="ml-5" style="text-decoration:none">
-                    <i class="layui-icon">&#xe642;</i>
-                </a>
-                <a title="删除" href="javascript:;" onclick="device_del(this,'1')"
-                   style="text-decoration:none">
-                    <i class="layui-icon">&#xe640;</i>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+
+    <template>
+        <el-table
+                :data="deviceList"
+                border
+                @selection-change="SelectionChange"
+                style="width: 100%"
+                :header-cell-style="{background:'#f2f2f2'}"
+        >
+            <el-table-column
+                    type="selection"
+                    width="35">
+            </el-table-column>
+            <el-table-column
+                    fixed
+                    prop="id"
+                    label="ID"
+                    width="50">
+            </el-table-column>
+            <el-table-column
+                    prop="communityName"
+                    label="所属小区"
+                    width="120">
+            </el-table-column>
+            <el-table-column
+                    prop="code"
+                    label="设备编号"
+                    width="120">
+            </el-table-column>
+            <el-table-column
+                    prop="name"
+                    label="设备名称"
+                    width="150">
+            </el-table-column>
+            <el-table-column
+                    prop="brand"
+                    label="设备品牌"
+                    width="150">
+            </el-table-column>
+
+            <el-table-column
+                    prop="unitPrice"
+                    label="购买单价（￥）元"
+                    width="150">
+            </el-table-column>
+            <el-table-column
+                    prop="num"
+                    label="购买数量"
+                    width="150">
+            </el-table-column>
+            <el-table-column
+                    prop="purchaseDate"
+                    label="购买日期"
+                    width="200">
+                <template slot-scope="scope">
+                    <span v-text="dateFomat(scope.row.purchaseDate)"></span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    prop="expectedUsefulLife"
+                    label="预使用年限"
+                    width="150">
+            </el-table-column>
+
+            <el-table-column
+                    prop="createTime"
+                    label="创建时间"
+                    width="200">
+                <template slot-scope="scope">
+                    <span v-text="dateFomat(scope.row.createTime)"></span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    fixed="right"
+                    type="index"
+                    label="操作"
+                    width="100">
+                <template slot-scope="scope">
+                    <a title="编辑" href="javascript:;"
+                       @click="device_edit('编辑','device_add.html',deviceList[scope.$index].id,'1000','600')"
+                       class="ml-5" style="text-decoration:none">
+                        <i class="el-icon-edit-outline"></i>&nbsp;&nbsp;
+                    </a>
+                    <a title="删除" href="javascript:;" @click="admin_del(deviceList[scope.$index].id)"
+                       style="text-decoration:none">
+                        <i class="el-icon-delete"></i>
+                    </a>
+                </template>
+            </el-table-column>
+        </el-table>
+    </template>
 
     <el-pagination
             background
@@ -197,7 +174,7 @@
         data: {
             total: 1,
             selectlist:[],
-            communityList: [],
+            deviceList: [],
             searchMap: {
                 "startTime": "",
                 "endTime": "",
@@ -238,10 +215,10 @@
 
             //分页条件查询小区列表
             search() {
-                // axios.post("/community/search", this.searchMap).then((res) => {
-                //     this.communityList = res.data.data;
-                //     this.total = res.data.total;
-                // })
+                axios.post("/device/search", this.searchMap).then((res) => {
+                    this.deviceList = res.data.data;
+                    this.total = res.data.total;
+                })
             },
             //pageSize
             handleSizeChange(pageSize) {
@@ -348,7 +325,7 @@
 
             },
             //编辑
-            community_edit(title, url, id, w, h) {
+            device_edit(title, url, id, w, h) {
                 url = url + "?id=" + id;
                 this.x_admin_show(title, url, w, h);
             },
