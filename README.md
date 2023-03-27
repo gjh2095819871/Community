@@ -2,7 +2,8 @@
 小区管理系统
 ![image](https://user-images.githubusercontent.com/65147786/227552976-b46dca71-be9c-4b83-9e07-bb6a45085a99.png)
 nginx配置：
-    server {
+  '''  
+  server {
         listen       80;
         server_name  www.community.com;
         proxy_set_header X-Forwarded-Host $host;
@@ -18,7 +19,10 @@ nginx配置：
 			proxy_read_timeout 600;
 		}
     }
+    '''
 host配置：
+    '''
     127.0.0.1 www.community.com
+    '''
 
 项目启动后访问  www.community.com
