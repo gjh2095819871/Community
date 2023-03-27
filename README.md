@@ -10,7 +10,7 @@ nginx配置：
 		proxy_set_header X-Forwarded-Server $host;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		location /image{
-			alias D:/spring-project/code/Community/src/main/resources/static;
+			alias 项目路径/src/main/resources/static;
 			break;
 		}
 		location / {
