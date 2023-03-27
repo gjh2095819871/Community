@@ -238,50 +238,45 @@
                             <tbody>
                             <tr>
                                 <th>服务器计算机名</th>
-                                <td><span id="lbServerName">http://127.0.0.1/</span></td>
+                                <td><span id="lbServerName">{{systemInfo.localName}}</span></td>
+
+                            </tr>
+                            <tr>
+                                <td>当前用户</td>
+                                <td>{{systemInfo.userName}}</td>
 
                             </tr>
                             <tr>
                                 <td>服务器IP地址</td>
-                                <td>192.168.1.1</td>
+                                <td>{{systemInfo.ip}}</td>
                             </tr>
                             <tr>
                                 <td>服务器域名</td>
-                                <td>www.xxx.net</td>
+                                <td>{{hostname}}</td>
 
                             </tr>
                             <tr>
-                                <td>服务器端口</td>
-                                <td>80</td>
-                            </tr>
-                            <tr>
-                                <td>服务器IIS版本</td>
-                                <td>Microsoft-IIS/6.0</td>
+                                <td>服务器架构</td>
+                                <td>{{systemInfo.osArch}}</td>
 
-                            </tr>
-                            <tr>
-                                <td>本文件所在文件夹</td>
-                                <td>D:\WebSite\</td>
                             </tr>
                             <tr>
                                 <td>服务器操作系统</td>
-                                <td>Microsoft Windows NT 5.2.3790 Service Pack 2</td>
+                                <td>{{systemInfo.osName}}</td>
 
                             </tr>
                             <tr>
                                 <td>系统所在文件夹</td>
-                                <td>C:\WINDOWS\system32</td>
+                                <td>{{systemInfo.userdir}}</td>
                             </tr>
                             <tr>
-                                <td>服务器脚本超时时间</td>
-                                <td>30000秒</td>
-
+                                <td>主机空间</td>
+                                <td>{{systemInfo.totalused}}</td>
                             </tr>
                             <tr>
-                                <td>服务器的语言种类</td>
-                                <td>Chinese (People's Republic of China)</td>
+                                <td>主机使用率</td>
+                                <td>{{systemInfo.usedRate}}</td>
                             </tr>
-
                             </tbody>
                         </table>
                     </div>
@@ -306,7 +301,9 @@
                 "buildingcount": 0,
                 "homecount": 0,
                 "peoplecount": 0,
-                "ownercount": 0
+                "ownercount": 0,
+                systemInfo: {},
+                "hostname":window.location.hostname,
             },
             mounted() {
                 this.initeChart1();
@@ -325,6 +322,11 @@
                         this.peoplecount = res.data.data.peoplecount;
                         this.ownercount = res.data.data.ownercount;
                     });
+                },
+                get(){
+                    axios.get("/system/get").then((res) => {
+                        this.systemInfo = res.data.data;
+                    })
                 },
                 <!--投诉-->
                 initeChart1(){
@@ -725,6 +727,7 @@
             created: function () {
                 this.search();
                 this.search2();
+                this.get();
             }
 
         });

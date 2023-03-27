@@ -21,6 +21,7 @@ public class SystemController {
     @Autowired
     private SystemService service;
 
+    @RequestMapping("/get")
     public Result get(){
         Map<String, String> stringMap = service.get();
         return new Result(true, StatusCode.OK, "系统信息查询成功",stringMap);
