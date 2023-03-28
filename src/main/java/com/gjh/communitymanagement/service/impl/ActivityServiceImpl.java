@@ -74,6 +74,14 @@ public class ActivityServiceImpl extends ServiceImpl<ActivityDao, Activity> impl
     }
 
     @Override
+    public List<Activity> searchten() {
+        QueryWrapper<Activity> activityQueryWrapper = new QueryWrapper<>();
+        activityQueryWrapper.last("limit 10");
+        List<Activity> activities = activityDao.selectList(activityQueryWrapper);
+        return activities;
+    }
+
+    @Override
     public Boolean add(Activity activity) {
         return null;
     }

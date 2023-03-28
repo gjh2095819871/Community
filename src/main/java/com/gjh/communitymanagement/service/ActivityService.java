@@ -11,6 +11,8 @@ public interface ActivityService extends IService<Activity> {
 
     IPage<Activity> search(Map searchMap);
 
+    List<Activity> searchten();
+
     Boolean add(Activity activity);
 
     Boolean update(Activity activity);

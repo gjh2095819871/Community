@@ -141,35 +141,8 @@
                 <div class="panel-heading">最新活动</div>
                 <div class="panel-body">
                     <ul class="list-group clear-list m-t">
-                        <li class="list-group-item fist-item"><span class="float-right"> 09:00 </span> <span
-                                class="label label-success">1</span> 小区活动1
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 10:16 </span> <span
-                                class="label label-info">2</span> 小区活动2
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 08:22 </span> <span
-                                class="label label-primary">3</span> 小区活动3
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 11:06 </span> <span
-                                class="label label-warning">4</span> 小区活动4
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 12:00 </span> <span
-                                class="label label-warning">5</span> 小区活动5
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 08:22 </span> <span
-                                class="label label-warning">6</span> 小区活动6
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 11:06 </span> <span
-                                class="label label-warning">7</span> 小区活动7
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 12:00 </span> <span
-                                class="label label-warning">8</span> 小区活动8
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 11:06 </span> <span
-                                class="label label-warning">9</span> 小区活动9
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 12:00 </span> <span
-                                class="label label-warning">10</span> 小区活动10
+                        <li class="list-group-item" v-for="(activity,index) in activityList"><span class="float-right" v-text="dateFomat(activity.startTime)"> </span> <span
+                                class="label label-warning">{{index+1}}</span> {{activity.title}}
                         </li>
                     </ul>
                 </div>
@@ -294,16 +267,19 @@
     <script src="js/axios.js" charset="utf-8"></script>
     <!--Vue-->
     <script src="js/vue.js" charset="utf-8"></script>
+    <!--时间插件包Moment-->
+    <script src="js/moment.min.js" charset="utf-8"></script>
     <script>
         var app = new Vue({
             el: "#app",
             data: {
-                "buildingcount": 0,
-                "homecount": 0,
-                "peoplecount": 0,
-                "ownercount": 0,
+                buildingcount: 0,
+                homecount: 0,
+                peoplecount: 0,
+                ownercount: 0,
                 systemInfo: {},
-                "hostname":window.location.hostname,
+                activityList:[],
+                hostname: window.location.hostname,
             },
             mounted() {
                 this.initeChart1();
@@ -311,25 +287,50 @@
                 this.initeChart3()
             },
             methods: {
-                search() {
-                    axios.get("/community/searchCount").then((res) => {
-                        this.buildingcount = res.data.data.buildingcount;
-                        this.homecount = res.data.data.homecount;
-                    });
+                 search() {
+                    let request1 = axios.get("/community/searchCount");
+                    let request2 = axios.get("/owner/searchCount");
+                    let request3 = axios.get("/system/get");
+                    let request4 = axios.get("/activity/searchten");
+
+                     Promise.all([request1, request2, request3, request4])
+                        .then(responses=> {
+
+                            this.buildingcount =  responses[0].data.data.buildingcount;
+                            this.homecount =  responses[0].data.data.homecount;
+
+                            this.peoplecount =  responses[1].data.data.peoplecount;
+                            this.ownercount =  responses[1].data.data.ownercount;
+
+                            this.systemInfo =  responses[2].data.data;
+
+                            this.activityList = responses[3].data.data;
+                        })
+                        .catch(function (error) {
+                            this.$message({
+                                type: 'info',
+                                message: '数据查询失败'
+                            });
+                        })
+
+                    // axios.get("/community/searchCount").then((res) => {
+                    //     this.buildingcount = res.data.data.buildingcount;
+                    //     this.homecount = res.data.data.homecount;
+                    // });
                 },
-                search2(){
-                    axios.get("/owner/searchCount").then((res) => {
-                        this.peoplecount = res.data.data.peoplecount;
-                        this.ownercount = res.data.data.ownercount;
-                    });
+                //日期格式化
+                dateFomat(date, format) {
+                    let date1=(new Date(date)).valueOf()-28800000;
+                    format = "YYYY-MM-DD HH:mm:ss";
+                    if (date == null || format == '') {
+                        format = "YYYY-MM-DD HH:mm:ss";
+                    } else {
+                        return moment(date1).format(format);
+                    }
                 },
-                get(){
-                    axios.get("/system/get").then((res) => {
-                        this.systemInfo = res.data.data;
-                    })
-                },
+
                 <!--投诉-->
-                initeChart1(){
+                initeChart1() {
                     // 基于准备好的dom，初始化echarts实例
                     var myChart = echarts.init(document.getElementById('main'));
 
@@ -479,7 +480,7 @@
                     myChart.setOption(option);
                 },
                 <!--人数统计-->
-                initeChart2(){
+                initeChart2() {
                     // 指定图表的配置项和数据
                     var myChart = echarts.init(document.getElementById('area'));
 
@@ -589,7 +590,7 @@
                     });
                 },
                 <!--车位-->
-                initeChart3(){
+                initeChart3() {
                     // 基于准备好的dom，初始化echarts实例
                     var myChart = echarts.init(document.getElementById('years'));
 
@@ -726,8 +727,6 @@
             },
             created: function () {
                 this.search();
-                this.search2();
-                this.get();
             }
 
         });

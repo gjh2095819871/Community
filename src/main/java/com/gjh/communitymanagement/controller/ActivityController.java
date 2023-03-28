@@ -4,6 +4,7 @@ package com.gjh.communitymanagement.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.gjh.communitymanagement.common.MessageConstant;
 import com.gjh.communitymanagement.common.PageResult;
+import com.gjh.communitymanagement.common.Result;
 import com.gjh.communitymanagement.common.StatusCode;
 import com.gjh.communitymanagement.domain.Activity;
 import com.gjh.communitymanagement.domain.Car;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +37,12 @@ public class ActivityController {
     public PageResult search(@RequestBody Map searchMap) {
         IPage<Activity> activityIPage = activityService.search(searchMap);
         return new PageResult(true, StatusCode.OK, MessageConstant.COMMUNITY_SEARCH_SUCCESS, activityIPage.getRecords(), activityIPage.getTotal());
+    }
+
+    @RequestMapping("/searchten")
+    public Result searchten(){
+        List<Activity> searchten = activityService.searchten();
+        return new Result(true,StatusCode.OK,"",searchten);
     }
 }
 
