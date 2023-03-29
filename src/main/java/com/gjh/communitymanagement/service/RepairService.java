@@ -11,6 +11,9 @@ public interface RepairService extends IService<Repair> {
 
     IPage<Repair> search(Map searchMap);
 
+    List<Repair> searchten();
+
+
     Boolean add(Repair repair);
 
     Boolean update(Repair repair);

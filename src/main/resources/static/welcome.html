@@ -141,8 +141,12 @@
                 <div class="panel-heading">最新活动</div>
                 <div class="panel-body">
                     <ul class="list-group clear-list m-t">
-                        <li class="list-group-item" v-for="(activity,index) in activityList"><span class="float-right" v-text="dateFomat(activity.startTime)"> </span> <span
-                                class="label label-warning">{{index+1}}</span> {{activity.title}}
+                        <li class="list-group-item" v-for="(activity,index) in activityList"><span class="float-right" v-text="dateFomat(activity.startTime)"> </span>
+                            <span class="label label-success"  v-if="index==0">{{index+1}}</span>
+                            <span class="label label-info" v-if="index==1">{{index+1}}</span>
+                            <span class="label label-primary" v-if="index==2">{{index+1}}</span>
+                            <span class="label label-warning" v-if="index>2">{{index+1}}</span>
+                            {{activity.title}}
                         </li>
                     </ul>
                 </div>
@@ -153,43 +157,16 @@
                 <div class="panel-heading">最新报修</div>
                 <div class="panel-body">
                     <ul class="list-group clear-list m-t">
-                        <li class="list-group-item"><span class="float-right"> 09:00 &nbsp;<b
-                                style="color: #2fb9d4">已受理</b></span> <span class="label label-danger">1</span> D区垃圾桶更换
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 10:16 &nbsp;<b
-                                style="color: #2fb9d4">已受理</b></span> <span class="label label-info">2</span> C区路灯维修
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 08:22 &nbsp;<b
-                                style="color: #2fb9d4">已受理</b></span> <span class="label label-warning">3</span>
-                            A区13楼摄像头维修
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 11:06 &nbsp;<b
-                                style="color: #2fb9d4">已受理</b></span> <span class="label label-default">4</span>
-                            A区13楼摄像头维修
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 12:00 &nbsp;<b
-                                style="color: #FF5722">未受理</b></span> <span class="label label-default">5</span>
-                            A区13楼摄像头维修
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 08:22 &nbsp;<b
-                                style="color: #FF5722">未受理</b></span> <span class="label label-default">6</span>
-                            A区13楼摄像头维修
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 11:06 &nbsp;<b
-                                style="color: #FF5722">未受理</b></span> <span class="label label-default">7</span>
-                            A区13楼摄像头维修
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 12:00 &nbsp;<b
-                                style="color: #2fb9d4">已受理</b></span> <span class="label label-default">8</span>
-                            A区13楼摄像头维修
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 11:06 &nbsp;<b
-                                style="color: #2fb9d4">已受理</b></span> <span class="label label-default">9</span>
-                            A区13楼摄像头维修
-                        </li>
-                        <li class="list-group-item"><span class="float-right"> 12:00 &nbsp;<b
-                                style="color: #2fb9d4">已受理</b></span> <span class="label label-default">10</span>
-                            B区地下停车场排水系统检修
+                        <li class="list-group-item" v-for="(repair,index) in repairList"><span class="float-right" v-text="dateFomat(repair.createTime)">&nbsp;
+                            <b v-if="repair.status=='0'" style="color: #FF5722">待受理</b>
+                            <b v-if="repair.status=='1'" style="color: #2fb9d4">已受理</b>
+                            <b v-if="repair.status=='2'" style="color: #5daf34">受理完毕</b>
+                        </span>
+                            <span class="label label-danger"  v-if="index==0">{{index+1}}</span>
+                            <span class="label label-info" v-if="index==1">{{index+1}}</span>
+                            <span class="label label-warning" v-if="index==2">{{index+1}}</span>
+                            <span class="label label-default" v-if="index>2">{{index+1}}</span>
+                            {{repair.description}}
                         </li>
                     </ul>
                 </div>
@@ -279,6 +256,7 @@
                 ownercount: 0,
                 systemInfo: {},
                 activityList:[],
+                repairList:[],
                 hostname: window.location.hostname,
             },
             mounted() {
@@ -292,8 +270,9 @@
                     let request2 = axios.get("/owner/searchCount");
                     let request3 = axios.get("/system/get");
                     let request4 = axios.get("/activity/searchten");
+                    let request5 = axios.get("/repair/searchten");
 
-                     Promise.all([request1, request2, request3, request4])
+                     Promise.all([request1, request2, request3, request4,request5])
                         .then(responses=> {
 
                             this.buildingcount =  responses[0].data.data.buildingcount;
@@ -305,6 +284,8 @@
                             this.systemInfo =  responses[2].data.data;
 
                             this.activityList = responses[3].data.data;
+
+                            this.repairList = responses[4].data.data;
                         })
                         .catch(function (error) {
                             this.$message({
@@ -321,9 +302,9 @@
                 //日期格式化
                 dateFomat(date, format) {
                     let date1=(new Date(date)).valueOf()-28800000;
-                    format = "YYYY-MM-DD HH:mm:ss";
+                    format = "HH:mm";
                     if (date == null || format == '') {
-                        format = "YYYY-MM-DD HH:mm:ss";
+                        format = "HH:mm";
                     } else {
                         return moment(date1).format(format);
                     }

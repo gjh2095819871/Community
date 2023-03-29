@@ -72,6 +72,14 @@ public class RepairServiceImpl extends ServiceImpl<RepairDao, Repair> implements
     }
 
     @Override
+    public List<Repair> searchten() {
+        QueryWrapper<Repair> repairQueryWrapper = new QueryWrapper<>();
+        repairQueryWrapper.last("limit 10");
+        List<Repair> repairs = repairDao.selectList(repairQueryWrapper);
+        return repairs;
+    }
+
+    @Override
     public Boolean add(Repair repair) {
         return null;
     }
