@@ -46,10 +46,16 @@ public class HouseController {
         return new Result(delete > 0 ? true : false, StatusCode.OK, MessageConstant.COMMUNITY_DELETE_SUCCESS);
     }
 
+    @PostMapping("/add")
+    public Result add(@RequestBody House house) {
+        Boolean add = houseService.add(house);
+        return new Result(add, StatusCode.OK, "");
+    }
+
     @PostMapping("/update")
     public Result update(@RequestBody House house) {
         Boolean update = houseService.update(house);
-        return new Result(update, StatusCode.OK, MessageConstant.COMMUNITY_UPDATE_SUCCESS);
+        return new Result(update, StatusCode.OK, "");
     }
 
     @RequestMapping("/findAllHou")

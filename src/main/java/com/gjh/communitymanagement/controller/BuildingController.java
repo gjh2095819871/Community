@@ -46,10 +46,16 @@ public class BuildingController {
         return new Result(delete > 0 ? true : false, StatusCode.OK, MessageConstant.COMMUNITY_DELETE_SUCCESS);
     }
 
+    @PostMapping("/add")
+    public Result add(@RequestBody Building building){
+        Boolean add = buildingService.add(building);
+        return new Result(add,StatusCode.OK,"");
+    }
+
     @PostMapping("/update")
     public Result update(@RequestBody Building building) {
         Boolean update = buildingService.update(building);
-        return new Result(update, StatusCode.OK, MessageConstant.COMMUNITY_UPDATE_SUCCESS);
+        return new Result(update, StatusCode.OK, "");
     }
 
     @RequestMapping("/findAllBuil")

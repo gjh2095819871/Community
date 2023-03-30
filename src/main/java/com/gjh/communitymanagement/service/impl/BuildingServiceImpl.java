@@ -81,7 +81,7 @@ public class BuildingServiceImpl extends ServiceImpl<BuildingDao, Building> impl
 
     @Override
     public Boolean add(Building building) {
-        return null;
+        return buildingDao.insert(building)> 0 ? true : false;
     }
 
     @Override

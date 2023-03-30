@@ -83,7 +83,7 @@ public class HouseServiceImpl extends ServiceImpl<HouseDao, House> implements Ho
 
     @Override
     public Boolean add(House house) {
-        return null;
+        return houseDao.insert(house) > 0 ? true : false;
     }
 
     @Override
@@ -112,7 +112,7 @@ public class HouseServiceImpl extends ServiceImpl<HouseDao, House> implements Ho
     @Override
     public List<Map<String, Object>> findAllHou() {
         QueryWrapper<House> queryWrapper = new QueryWrapper<>();
-        queryWrapper.select("id","name");
+        queryWrapper.select("id", "name");
         List<Map<String, Object>> maps = houseDao.selectMaps(queryWrapper);
         return maps;
     }
