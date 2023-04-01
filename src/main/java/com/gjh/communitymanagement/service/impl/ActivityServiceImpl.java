@@ -83,22 +83,24 @@ public class ActivityServiceImpl extends ServiceImpl<ActivityDao, Activity> impl
 
     @Override
     public Boolean add(Activity activity) {
-        return null;
+        return activityDao.insert(activity) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(Activity activity) {
-        return null;
+        return activityDao.updateById(activity) > 0 ? true : false;
     }
 
     @Override
     public Activity findById(int id) {
-        return null;
+        Activity activity = activityDao.selectById(id);
+        return activity;
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        int i = activityDao.deleteById(id);
+        return i;
     }
 
     @Override

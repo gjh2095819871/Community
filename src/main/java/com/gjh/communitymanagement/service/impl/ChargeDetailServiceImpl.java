@@ -20,8 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-//public
-class ChargeDetailServiceImpl extends ServiceImpl<ChargeDetailDao, ChargeDetail> implements ChargeDetailService {
+public class ChargeDetailServiceImpl extends ServiceImpl<ChargeDetailDao, ChargeDetail> implements ChargeDetailService {
 
     @Autowired
     private ChargeDetailDao chargeDetailDao;

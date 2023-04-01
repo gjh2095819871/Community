@@ -84,22 +84,23 @@ public class CarServiceImpl extends ServiceImpl<CarDao, Car> implements CarServi
 
     @Override
     public Boolean add(Car car) {
-        return null;
+        int insert = carDao.insert(car);
+        return insert > 0 ? true : false;
     }
 
     @Override
     public Boolean update(Car car) {
-        return null;
+        return carDao.updateById(car) > 0 ? true : false;
     }
 
     @Override
     public Car findById(int id) {
-        return null;
+        return carDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return carDao.deleteById(id);
     }
 
     @Override
