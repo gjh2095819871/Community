@@ -81,22 +81,22 @@ public class ParkingServiceImpl extends ServiceImpl<ParkingDao, Parking> impleme
 
     @Override
     public Boolean add(Parking parking) {
-        return null;
+        return parkingDao.insert(parking) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(Parking parking) {
-        return null;
+        return parkingDao.updateById(parking) > 0 ? true : false;
     }
 
     @Override
     public Parking findById(int id) {
-        return null;
+        return parkingDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return parkingDao.deleteById(id);
     }
 
     @Override

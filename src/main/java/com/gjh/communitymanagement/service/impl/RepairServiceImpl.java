@@ -81,22 +81,22 @@ public class RepairServiceImpl extends ServiceImpl<RepairDao, Repair> implements
 
     @Override
     public Boolean add(Repair repair) {
-        return null;
+        return repairDao.insert(repair) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(Repair repair) {
-        return null;
+        return repairDao.updateById(repair) > 0 ? true : false;
     }
 
     @Override
     public Repair findById(int id) {
-        return null;
+        return repairDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return repairDao.deleteById(id);
     }
 
     @Override

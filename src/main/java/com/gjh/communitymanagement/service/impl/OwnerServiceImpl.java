@@ -28,7 +28,7 @@ import java.util.function.Function;
  * @Version 1.0
  */
 @Service
-public class OwnerServiceImpl extends ServiceImpl<OwnerDao,Owner> implements OwnerService {
+public class OwnerServiceImpl extends ServiceImpl<OwnerDao, Owner> implements OwnerService {
 
     @Autowired
     private OwnerDao ownerDao;
@@ -83,22 +83,22 @@ public class OwnerServiceImpl extends ServiceImpl<OwnerDao,Owner> implements Own
 
     @Override
     public Boolean add(Owner owner) {
-        return null;
+        return ownerDao.insert(owner) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(Owner owner) {
-        return null;
+        return ownerDao.updateById(owner) > 0 ? true : false;
     }
 
     @Override
     public Owner findById(int id) {
-        return null;
+        return ownerDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return ownerDao.deleteById(id);
     }
 
     @Override
@@ -109,7 +109,7 @@ public class OwnerServiceImpl extends ServiceImpl<OwnerDao,Owner> implements Own
     @Override
     public List<Map<String, Object>> findAllOwn() {
         QueryWrapper<Owner> queryWrapper = new QueryWrapper<>();
-        queryWrapper.select("id","name");
+        queryWrapper.select("id", "name");
         List<Map<String, Object>> maps = ownerDao.selectMaps(queryWrapper);
         return maps;
     }
@@ -120,8 +120,8 @@ public class OwnerServiceImpl extends ServiceImpl<OwnerDao,Owner> implements Own
         queryWrapper.select("type");
         List<Owner> owners = ownerDao.selectList(queryWrapper);
         HashMap<String, Integer> integerHashMap = new HashMap<>();
-        integerHashMap.put("peoplecount",owners.size());
-        long count = owners.stream().filter(str->str.getType().contains("1")).count();
+        integerHashMap.put("peoplecount", owners.size());
+        long count = owners.stream().filter(str -> str.getType().contains("1")).count();
         integerHashMap.put("ownercount", Math.toIntExact(count));
 
         return integerHashMap;

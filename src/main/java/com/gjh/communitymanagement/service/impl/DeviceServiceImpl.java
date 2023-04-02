@@ -73,22 +73,22 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceDao, Device> implements
 
     @Override
     public Boolean add(Device device) {
-        return null;
+        return deviceDao.insert(device) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(Device device) {
-        return null;
+        return deviceDao.updateById(device) > 0 ? true : false;
     }
 
     @Override
     public Device findById(int id) {
-        return null;
+        return deviceDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return deviceDao.deleteById(id);
     }
 
     @Override

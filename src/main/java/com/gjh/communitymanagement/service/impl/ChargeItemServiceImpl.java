@@ -73,22 +73,22 @@ public class ChargeItemServiceImpl extends ServiceImpl<ChargeItemDao, ChargeItem
 
     @Override
     public Boolean add(ChargeItem chargeItem) {
-        return null;
+        return chargeItemDao.insert(chargeItem) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(ChargeItem chargeItem) {
-        return null;
+        return chargeItemDao.updateById(chargeItem) > 0 ? true : false;
     }
 
     @Override
     public ChargeItem findById(int id) {
-        return null;
+        return chargeItemDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return chargeItemDao.deleteById(id);
     }
 
     @Override

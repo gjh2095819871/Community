@@ -73,22 +73,22 @@ public class ChargeDetailServiceImpl extends ServiceImpl<ChargeDetailDao, Charge
 
     @Override
     public Boolean add(ChargeDetail chargeDetail) {
-        return null;
+        return chargeDetailDao.insert(chargeDetail) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(ChargeDetail chargeDetail) {
-        return null;
+        return chargeDetailDao.updateById(chargeDetail) > 0 ? true : false;
     }
 
     @Override
     public ChargeDetail findById(int id) {
-        return null;
+        return chargeDetailDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return chargeDetailDao.deleteById(id);
     }
 
     @Override

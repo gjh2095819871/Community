@@ -7,9 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="接口优化，添加功能">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="接口优化，添加功能" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,6 +183,7 @@
       <workItem from="1680002448758" duration="5013000" />
       <workItem from="1680091976226" duration="1754000" />
       <workItem from="1680176018077" duration="720000" />
+      <workItem from="1680354013609" duration="603000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1679224918002</created>
@@ -284,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680176568035</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="接口优化，添加功能">
+      <created>1680354608143</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680354608143</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

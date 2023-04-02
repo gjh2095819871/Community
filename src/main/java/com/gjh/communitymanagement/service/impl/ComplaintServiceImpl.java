@@ -73,22 +73,22 @@ public class ComplaintServiceImpl extends ServiceImpl<ComplaintDao, Complaint> i
 
     @Override
     public Boolean add(Complaint complaint) {
-        return null;
+        return complaintDao.insert(complaint) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(Complaint complaint) {
-        return null;
+        return complaintDao.updateById(complaint) > 0 ? true : false;
     }
 
     @Override
     public Complaint findById(int id) {
-        return null;
+        return complaintDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return complaintDao.deleteById(id);
     }
 
     @Override

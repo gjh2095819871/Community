@@ -73,22 +73,22 @@ public class LetterServiceImpl extends ServiceImpl<LetterDao, Letter> implements
 
     @Override
     public Boolean add(Letter letter) {
-        return null;
+        return letterDao.insert(letter) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(Letter letter) {
-        return null;
+        return letterDao.updateById(letter) > 0 ? true : false;
     }
 
     @Override
     public Letter findById(int id) {
-        return null;
+        return letterDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return letterDao.deleteById(id);
     }
 
     @Override

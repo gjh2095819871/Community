@@ -82,22 +82,22 @@ public class ParkinguseServiceImpl extends ServiceImpl<ParkingUseDao, ParkingUse
 
     @Override
     public Boolean add(ParkingUse parkingUse) {
-        return null;
+        return parkingUseDao.insert(parkingUse) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(ParkingUse parkingUse) {
-        return null;
+        return parkingUseDao.updateById(parkingUse) > 0 ? true : false;
     }
 
     @Override
     public ParkingUse findById(int id) {
-        return null;
+        return parkingUseDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return parkingUseDao.deleteById(id);
     }
 
     @Override

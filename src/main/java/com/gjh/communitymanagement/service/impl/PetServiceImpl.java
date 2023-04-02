@@ -81,22 +81,22 @@ public class PetServiceImpl extends ServiceImpl<PetDao, Pet> implements PetServi
 
     @Override
     public Boolean add(Pet pet) {
-        return null;
+        return petDao.insert(pet) > 0 ? true : false;
     }
 
     @Override
     public Boolean update(Pet pet) {
-        return null;
+        return petDao.updateById(pet) > 0 ? true : false;
     }
 
     @Override
     public Pet findById(int id) {
-        return null;
+        return petDao.selectById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return 0;
+        return petDao.deleteById(id);
     }
 
     @Override
