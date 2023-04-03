@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
     /**
      * 功能描述: 捕获Exception类型的异常，并进行友好错误提示
      * @param exception
-     * @return : com.heima.estatemanagement.common.Result
+     * @return : Result
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
