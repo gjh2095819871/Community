@@ -10,10 +10,7 @@ import com.gjh.communitymanagement.domain.Activity;
 import com.gjh.communitymanagement.domain.Car;
 import com.gjh.communitymanagement.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -43,6 +40,30 @@ public class ActivityController {
     public Result searchten(){
         List<Activity> searchten = activityService.searchten();
         return new Result(true,StatusCode.OK,"",searchten);
+    }
+
+    @PostMapping("/add")
+    public Result add(@RequestBody Activity activity){
+        Boolean add = activityService.add(activity);
+        return  new Result(add,StatusCode.OK,"");
+    }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody Activity activity){
+        Boolean update = activityService.update(activity);
+        return  new Result(update,StatusCode.OK,"");
+    }
+
+    @GetMapping("/findById")
+    public Result findById(Integer id){
+        Activity activity = activityService.findById(id);
+        return new Result(true,StatusCode.OK,"",activity);
+    }
+
+    @DeleteMapping ("/daleteById")
+    public Result deleteById(@RequestParam Integer id){
+        int i = activityService.deleteById(id);
+        return new Result(i > 0 ? true : false, StatusCode.OK, "");
     }
 }
 
