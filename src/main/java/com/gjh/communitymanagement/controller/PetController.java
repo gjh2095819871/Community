@@ -4,15 +4,13 @@ package com.gjh.communitymanagement.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.gjh.communitymanagement.common.MessageConstant;
 import com.gjh.communitymanagement.common.PageResult;
+import com.gjh.communitymanagement.common.Result;
 import com.gjh.communitymanagement.common.StatusCode;
 import com.gjh.communitymanagement.domain.Car;
 import com.gjh.communitymanagement.domain.Pet;
 import com.gjh.communitymanagement.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -37,5 +35,28 @@ public class PetController {
         return new PageResult(true, StatusCode.OK, MessageConstant.COMMUNITY_SEARCH_SUCCESS, petIPage.getRecords(), petIPage.getTotal());
     }
 
+    @PostMapping("/add")
+    public Result add(@RequestBody Pet pet){
+        Boolean add = petService.add(pet);
+        return new Result(add,StatusCode.OK,"");
+    }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody Pet pet){
+        Boolean update = petService.update(pet);
+        return new Result(update,StatusCode.OK,"");
+    }
+
+    @GetMapping("/findById")
+    public Result findById(Integer id){
+        Pet pet = petService.findById(id);
+        return new Result(true,StatusCode.OK,"",pet);
+    }
+
+    @DeleteMapping ("/daleteById")
+    public Result deleteById(@RequestParam Integer id){
+        int i = petService.deleteById(id);
+        return new Result(i > 0 ? true : false, StatusCode.OK, "");
+    }
 }
 
