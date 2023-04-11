@@ -8,6 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fd17fa6-8de1-4366-a391-1038c3d26b56" name="Changes" comment="接口优化，添加功能">
+      <change afterPath="$PROJECT_DIR$/screw/gjh_community.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,6 +193,7 @@
       <workItem from="1680679161145" duration="628000" />
       <workItem from="1680786805882" duration="516000" />
       <workItem from="1680877612291" duration="555000" />
+      <workItem from="1681037681536" duration="396000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1679224918002</created>
@@ -333,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680877907739</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="接口优化，添加功能">
+      <created>1681038010251</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1681038010251</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
